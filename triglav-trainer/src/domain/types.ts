@@ -53,6 +53,10 @@ export interface WeekConfig {
   singingDay: DayIdx | null;
   homeDays: DayIdx[];
   blocked: DayIdx[];
+  /** Ballet skipped this week. */
+  balletSkipped?: boolean;
+  /** When ballet is skipped in advance: use Wednesday for training. */
+  wednesdayFree?: boolean;
 }
 
 export interface WeekPlan {
@@ -119,6 +123,19 @@ export interface Settings {
   passsportUrl: string;
   fuelReminders: boolean;
   batterySaver: boolean;
+  germanEnabled: boolean;
+  trainingCalendarId: string | null;
+  germanCalendarId: string | null;
+  /** Hiking pace used to estimate hike duration (m/h of climbing). Updated from tracked hikes. */
+  hikePaceMPerHour: number;
+}
+
+export type BlockStatus = 'done' | 'skipped';
+
+export interface GermanDay {
+  b1?: BlockStatus;
+  b2?: BlockStatus;
+  duolingo?: boolean;
 }
 
 export interface AppState {
@@ -128,4 +145,7 @@ export interface AppState {
   log: LogEntry[];
   progress: Progress;
   modes: ModePeriod[];
+  german: Record<string, GermanDay>;
+  /** Calendar event ids by key (session id or german block key). */
+  calendarEvents: Record<string, string>;
 }
