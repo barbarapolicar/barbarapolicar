@@ -11,6 +11,7 @@ Status: **design only**, not implemented yet.
 | Item | Value |
 |---|---|
 | Home | Radovljica |
+| Work | Office in Ljubljana 3 days/week, **working from home in Radovljica 2 days/week** |
 | Gym | 4P Fitnes klub, Stegne 11, Ljubljana (classes + open gym access) |
 | Current fitness | Moderate. Šmarna gora (Tacen) in ~40 min |
 | Injury | Past knee injury, mostly fine now. **Descents can bother it.** |
@@ -52,6 +53,33 @@ The app plans each week, adapts when life gets in the way (skips, mountain trips
 | Knee | No leg-heavy session the day before a run or hike. No high-impact classes. |
 | **Variety** | **The same weekly layout is never repeated two weeks in a row.** Days, run types, gym workouts and hikes rotate (see §6). |
 | Easier weeks | Every 4th week is lighter (~30% less volume). |
+| **Location** | **Office days (Ljubljana):** 4P classes and gym. **Home days (Radovljica):** outdoor runs, home strength, and from spring short hikes after work. See §3.1. |
+
+### 3.1 Office days and home days
+
+The user works from the Ljubljana office 3 days a week and from home in Radovljica 2 days a week. The app plans each day around **where the user actually is**.
+
+| | Office day (Ljubljana) | Home day (Radovljica) |
+|---|---|---|
+| 4P classes (Pilates, BodyPump, Boot Camp) | ✅ Only here | ❌ |
+| 4P gym (stairs, leg press, treadmill) | ✅ | ❌ |
+| Outdoor flat run | Possible (run in Radovljica after the commute) | ✅ **Preferred**: no commute, more daylight |
+| Home strength (H1, see below) | – | ✅ Replaces gym on home days |
+| Short weekday hike (Sv. Peter) | – | ✅ From ~April, when it's light after 16:00 |
+| Bad-weather fallback for runs | 4P treadmill | Move the run to an office day, or do H1 instead |
+
+**Setting the home days:**
+- In settings: **fixed home days** (e.g. always Mon + Wed), or **pick them each week** (the app asks on Sunday evening: *"Which days are you at home next week?"*).
+- Changing a home day re-plans the rest of the week.
+
+**Rules when home days clash with classes:**
+- Pilates is on Tue and Thu, so at least one of them is usually an office day. If both are home days, Pilates is replaced by H1 (core part) that week.
+- If **Friday is a home day**, BodyPump isn't possible. It is replaced by **gym G1 on an office day**, or **H1 at home**.
+- Boot Camp (Mon/Wed) is only suggested if that day is an office day.
+
+**H1: home strength routine** (~30 min, no equipment needed): squats, step-ups and **slow step-downs on a stair**, lunges, glute bridges, calf raises, plank and side plank. Knee-friendly; step-downs build control for descents.
+
+The example weeks in §6 show the structure only. When the real home days are known, the generator applies the rules above: a gym session on a home day becomes H1, a class on a home day moves to its other weekday (Pilates Tue ↔ Thu, Boot Camp Mon ↔ Wed) or is replaced, and runs move to home days where possible. All hard/light and knee rules still apply.
 
 ---
 
@@ -86,7 +114,7 @@ Boot Camp includes jumping, so it is introduced carefully:
 | BodyPump Mon/Wed 18:00, Spin, BodyStep, Yogalates, BodyShape, Core | Finish after 18:00 |
 | Fit in zdravi (Tue/Thu 09:30), early morning classes | Outside the preferred time |
 
-The timetable is stored as editable data so it can be updated when 4P changes the schedule (see §12).
+The timetable is stored as editable data so it can be updated when 4P changes the schedule (see §15).
 
 ---
 
@@ -170,6 +198,7 @@ Week C replaces BodyPump with a gym strength session, which frees Saturday for t
 - **Template order** is shuffled every block (e.g. B-A-C-D, then C-B-A-D). The easy week D always stays 4th. **Never the same layout two weeks in a row.**
 - **Run types (all flat, outside):** easy, longer, "finish strong" (last km a bit faster), new route. The app rotates flat routes around Radovljica and Lesce (e.g. along the Sava) and learns your favourites from GPS.
 - **Monday hard sessions** (gym or Boot Camp) are only placed after a light or rest Sunday.
+- **Location swap:** any gym session that lands on a home day becomes **H1 (home strength)**, and runs are moved to home days when possible (see §3.1).
 - **Gym workouts:** rotation of 3 sessions:
   - **G1** stair machine + leg press + step-ups
   - **G2** incline treadmill + slow step-downs (eccentric, for knee control on descents) + glutes/hamstrings
@@ -191,6 +220,24 @@ Week C replaces BodyPump with a gym strength session, which frees Saturday for t
 - In snowy or icy conditions the app shows a **gear reminder: microspikes + poles**. Roblek stays in the plan all winter.
 - **Backup options** are offered only in heavy fresh snow or avalanche danger: a single Sv. Peter ascent, or 45–60 min on the gym stair machine. Choosing a backup **never counts as a skip**.
 - Begunjščica and Stol are suggested from spring, once the user confirms conditions are OK.
+
+### Backpack weight
+On Triglav the pack will weigh about **6–8 kg** (water, food, ferrata set, helmet, layers). Hikes build up to it so race day doesn't feel heavier than training:
+
+| Period | Pack on hikes |
+|---|---|
+| Nov–Feb | Normal day pack (~3–4 kg) |
+| Mar | ~5 kg (add water bottles) |
+| Apr–May | ~6–7 kg |
+| Stol rehearsal | **Full Triglav pack** incl. ferrata set and helmet |
+
+The app shows the target pack weight on the hike card and asks after the hike how it felt. If the knee complained, the pack weight goes back down a step.
+
+### Eating and drinking on long hikes
+On hikes longer than ~2.5 h (from Roblek onward) the app treats eating and drinking as part of the training:
+- **Reminders during tracking:** drink every ~20–30 min, small snack every ~45–60 min. Discreet vibration, can be turned off.
+- **After the hike:** quick log of what was eaten and drunk, how energy felt (good / dipped / ran out) and when.
+- Over the spring the app builds the user's **personal Triglav fuelling plan** (what works, how much water to carry, where to refill at huts) from these logs.
 
 ---
 
@@ -242,26 +289,105 @@ Weather swaps **never count as a skip**.
 - **After a skip** the app tries to move the session to the next free slot that respects the rules. If there isn't one, it is dropped. **No penalty:** the progression simply holds.
 - **Streaks** count weeks with ≥ 2 completed sessions, so one skip doesn't break a streak.
 
+### Sick mode and travel mode
+- **Sick mode:** one tap pauses the plan. When the user marks themselves healthy again, the app restarts gently: **two light days** (walk, Pilates, H1 core) before hard sessions, and the first week back is an easy week. Longer illness (> 7 days) also repeats the last completed progression week.
+- **Travel / holiday mode:** for trips and holidays (e.g. Christmas). The user picks the dates and what's available (*nothing / running only / hotel gym / mountains*). The app plans light sessions with what's there, or pauses. On return, sessions restart at the level before the break, or one step lower if the break was longer than 10 days.
+- Neither mode counts as skips or breaks a streak.
+
 ---
 
-## 11. App features
+## 11. Triglav day plan
+
+The final weeks include a dedicated Triglav plan screen.
+
+| Item | Detail |
+|---|---|
+| **Main date** | Sun, 27 June 2027 |
+| **Backup dates** | Next weekend (3–4 July) and one more in early July. Snow near the summit or a storm can cancel the main date. |
+| Weather window | From ~5 days before, the app watches the forecast for Pokljuka and the summit (thunderstorms, wind, freezing level, snow). **Go / wait / move** recommendation 2 days before. |
+| Conditions | Reminder to check recent reports for snow on the upper part and the ferrata (PZS conditions, hut reports). |
+| Start time | Suggested early start (e.g. 5:00–5:30 from Rudno polje) to be off the summit before afternoon storms. |
+| **Pace plan** | Split times for the main points (e.g. Vodnikov dom, Planika, summit) based on the user's m/h from the Stol rehearsal, to stay on the 5.5 h target. |
+| **Turnaround time** | A fixed time to turn back regardless of position, set together with the weather. |
+| Huts | Optional reminder to book Vodnikov dom or Planika for an overnight or a rest stop. Check opening dates; some huts open only in late June. |
+| Descent | Planned as easy and untimed: poles, short steps, knee check-in afterwards. |
+| Fuelling | The personal fuelling plan from §7. Where to refill water. |
+| Pack | Final checklist: ferrata set, helmet, layers, headlamp, power bank, first aid, documents, PZS card. |
+
+---
+
+## 12. Safety, battery and offline use
+
+### Mountain safety
+- **Share hike plan:** before a hike the app can send the route, start time and **expected return time** to a chosen contact (SMS / WhatsApp link).
+- **Live location** (optional) for longer hikes, shared with that contact.
+- **Overdue check:** if the hike isn't finished ~1 h after the expected return time, the app asks *"Are you OK?"*. With no answer, it alerts the contact.
+- **112** emergency button always visible on the tracking screen, with current coordinates shown for the rescuers.
+- Reminder to have a valid **PZS membership** (Planinska zveza Slovenije), which includes mountain rescue insurance.
+
+### Phone battery
+The phone is the only tracker, so the app needs to last a full Triglav day:
+- **Battery-saver tracking mode** for long hikes (lower GPS sampling, altimeter continues).
+- Battery estimate at start: *"At this rate the battery lasts ~X h."*
+- **Power bank** on the checklist for hikes > 3 h.
+
+### Offline use
+- **Offline maps** for all training hills and the Triglav route, downloaded in advance.
+- Tracking, check-ins and the plan work fully **offline**. Sync happens when back online.
+
+---
+
+## 13. Preparation routines
+
+### Gear checklists
+Checklists per session type, shown the evening before:
+- **Run (dark/cold):** headlamp, reflective vest, layers, gloves.
+- **Winter hike:** microspikes, poles, warm layers, thermos, headlamp, power bank.
+- **Summer hike:** water, sun protection, rain jacket, snacks.
+- **Ferrata / Triglav:** ferrata set, helmet, gloves (+ the full Triglav list in §11).
+- **New boots:** reminder to **break them in** on shorter hikes before the long ones (at least ~4 weeks before Stol).
+
+### Warm-up and stretching
+Short guided routines (with simple illustrations, timer):
+- **Before runs** (5 min): leg swings, hip circles, easy skipping or brisk walk.
+- **After runs and hikes** (5–10 min): calves, quads, hamstrings, hip flexors, glutes.
+- **Knee routine** (5 min, optional on rest days): slow step-downs, wall sits, terminal knee extensions.
+- Built into the session flow: warm-up is offered when tracking starts, stretching when it ends.
+
+---
+
+## 14. App features
 
 ### Main screens
 1. **Today**: today's session with details, **weather verdict (outside / treadmill / move)**, (class + time, run distance and type, gym workout, hike suggestion + gear reminder), and buttons to start tracking, book or skip.
 2. **Week**: calendar view of the current week, with drag to move sessions (rules are validated).
-3. **Plan**: phases, upcoming weeks, Triglav countdown.
+3. **Plan**: phases, upcoming weeks, Triglav countdown, Triglav day plan (§11).
 4. **Track**: GPS recording for runs and hikes (distance, time, elevation gain, metres climbed/h, map).
 5. **Progress / Triglav dashboard**: benchmark trend, m/h vs target, weekly load, streaks, distance and climbing totals.
 6. **Log**: history of all sessions with effort and knee ratings.
+
+7. **Settings**: home/office days, safety contact, units, language, data export.
+
+### Motivation
+- **Summit collection:** every training hill and peak reached gets a card (date, time, photo, m/h). Goal: complete all training hills before Triglav.
+- **Badges**, e.g. first 5 km, 10 classes, first Boot Camp, first 1,000 m day, full Triglav pack carried, all training hills, Triglav summit.
+- **Streaks** (weeks with ≥ 2 sessions, see §10).
+- Monthly recap: sessions, km run, metres climbed, benchmark progress.
 
 ### After-session check-in
 - Effort 1–10 (RPE)
 - Knee: fine / a bit / sore
 - Optional note
+- After long hikes: energy, food and drink (see §7), pack weight feel
 
 ### Training load
 - **Load = effort (1–10) × duration (min)**, the same for every session type.
 - Weekly load chart. A load jump of more than ~30% over the previous week triggers a warning and an easier next session.
+
+### Data export and backup
+- **Export** all sessions and GPS tracks (CSV + GPX) at any time.
+- **Automatic backup** (iCloud or the optional cloud account) so history survives a phone change.
+- All data belongs to the user. No sharing without explicit action.
 
 ### Booking (option 1: hand off to Passsport!)
 - The app suggests a specific class ("BodyPump, Fri 17:00").
@@ -272,15 +398,18 @@ Weather swaps **never count as a skip**.
 - Reminder on session days (~14:00)
 - Sunday evening: preview of next week
 - Morning weather check for today's outdoor session; alert if the plan changes
-- Gear reminder the evening before a winter hike
+- Gear checklist the evening before a hike or a dark run
+- Sunday evening: which days are you at home next week? (if home days aren't fixed)
+- Safety: overdue check after expected return time
 
 ---
 
-## 12. Data model
+## 15. Data model
 
 ```
 User
-  ├─ profile: home, gym, injuries, equipment
+  ├─ profile: home, gym, injuries, equipment, safetyContact
+  ├─ WorkPattern: fixed home days or weekly choice; DayLocation[] (date, office / home)
   ├─ Goal: Triglav, date 2027-06-27, target 5.5 h / ~1,500 m (≈280 m/h)
   ├─ Plan
   │    ├─ Phase[] (name, start, end, focus)
@@ -290,18 +419,24 @@ User
        ├─ ClassSession   → classTypeId, scheduleSlotId, booked
        ├─ RunSession     → distanceKm, runType, indoor (treadmill) flag, gpsTrack
        ├─ GymSession     → workoutId (G1/G2/G3)
-       └─ HikeSession    → destination, elevationGainM, ascentTimeMin, mPerHour, gpsTrack, conditions
+       ├─ HikeSession    → destination, elevationGainM, ascentTimeMin, mPerHour, packKg, fuelLog, energy, gpsTrack, conditions
+       └─ HomeSession    → routineId (H1, warm-up, stretching, knee routine)
 
 ClassType      → name, impact (low/med/high), legHeavy, status (allowed / trial / excluded)
 WeatherCheck   → date, sessionId, forecast, verdict (outside / treadmill / move / backup)
 ScheduleSlot   → classTypeId, weekday, start, end (4P timetable, editable)
 Destination    → name, approxGainM, winterNote
 BlockedDate    → date range, reason
+ModePeriod     → sick / travel, dates, availableOptions
+TriglavPlan    → mainDate, backupDates[], startTime, turnaroundTime, splits[], hutBooking
+Checklist      → sessionType, items[]
+Badge          → id, earnedAt
+SummitCard     → destinationId, date, photo, mPerHour
 ```
 
 ---
 
-## 13. Technology
+## 16. Technology
 
 | Area | Choice | Why |
 |---|---|---|
@@ -311,16 +446,19 @@ BlockedDate    → date range, reason
 | Storage | Local-first (SQLite) with optional cloud backup (Supabase) | Works offline in the mountains |
 | Maps | Mapbox or Apple Maps | Run and hike tracks |
 | Weather / conditions | ARSO (meteo.si) + avalanche bulletin, Open-Meteo hourly API | Daily check for outdoor runs and hikes |
+| Safety | SMS / share links, background location sharing | Hike plan, live location, overdue check |
+| Offline maps | Mapbox offline packs (or similar) | Mountains without signal |
 | Language | Slovenian + English | |
 
-The **plan generator** is a rules engine (§3, §6, §8, §9, §10). It picks a template, fills in sessions, validates the hard/light and knee rules, and re-plans after skips, blocks and check-ins.
+The **plan generator** is a rules engine (§3, §3.1, §6, §8, §9, §10). It picks a template, fills in sessions, validates the hard/light and knee rules, and re-plans after skips, blocks and check-ins.
 
 ---
 
-## 14. Build scope
+## 17. Build scope
 
 ### MVP
 - Profile, goal, phases and the plan generator with week templates and variety
+- **Office / home days** and location-aware planning, H1 home routine
 - 4P timetable (manual data entry) and class suggestions
 - Today / Week / Log screens
 - GPS tracking for runs and hikes (distance, elevation, m/h)
@@ -328,16 +466,33 @@ The **plan generator** is a rules engine (§3, §6, §8, §9, §10). It picks a 
 - Skip, block dates, log a mountain day
 - Passsport! hand-off button
 - Daily weather check with outside / treadmill / move decision
+- Sick and travel mode
+- Safety basics: share hike plan, 112 button, battery-saver tracking, offline use
 
 ### Later
 - Triglav dashboard with benchmark trends
+- Triglav day plan screen (needed by ~May 2027)
+- Pack weight and fuelling tracking, personal fuelling plan
+- Live location and overdue check
+- Gear checklists, warm-up and stretching routines
+- Summit collection, badges, monthly recap
+- Data export and backup
 - Apple Health sync
 - Notifications
 - Timetable update helper (re-enter from a screenshot)
 
+### Success criteria for the MVP
+The first version is done when the user can, for 4 consecutive weeks:
+1. Open the app each day and see **one clear session** that respects all rules (time window, hard/light, knee, office/home day, weather).
+2. **Book** a suggested 4P class via the Passsport! hand-off in ≤ 2 taps.
+3. **Track** a run and a hike with phone only, with distance, elevation gain and m/h within ~5–10% of known values.
+4. **Skip**, block dates, change home days or switch to sick mode, and get a valid re-planned week immediately.
+5. See that **no two weeks have the same layout** and no two hard days are back to back.
+6. Use tracking fully **offline** on a hike, with sync afterwards.
+
 ---
 
-## 15. Decisions log
+## 18. Decisions log
 
 | Decision | Choice |
 |---|---|
@@ -351,4 +506,6 @@ The **plan generator** is a rules engine (§3, §6, §8, §9, §10). It picks a 
 | Weekly structure | Varies week to week, never the same layout twice in a row |
 | Gym | 4P open gym used for stairs and leg strength sessions |
 | Tracking | Built in (phone GPS + altimeter). No watch, no third-party apps. |
-| Triglav | Pokljuka → summit in 5.5 h (ascent only), end of June 2027 |
+| Triglav | Pokljuka → summit in 5.5 h (ascent only), end of June 2027. Backup dates in early July. |
+| Location | 3 office days in Ljubljana (classes + gym), 2 home days in Radovljica (runs, H1, short hikes). Home days fixed or chosen weekly. |
+| Extras | Backpack weight progression, fuelling practice, sick/travel mode, Triglav day plan, safety + battery + offline, gear checklists, warm-up/stretching, motivation, data export |
