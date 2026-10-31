@@ -1,13 +1,14 @@
 {
   "expo": {
-    "name": "triglav-trainer",
+    "name": "Triglav Trainer",
     "slug": "triglav-trainer",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": false,
+      "bundleIdentifier": "com.barbarapolicar.triglavtrainer"
     },
     "android": {
       "adaptiveIcon": {
@@ -16,10 +17,31 @@
         "backgroundImage": "./assets/android-icon-background.png",
         "monochromeImage": "./assets/android-icon-monochrome.png"
       },
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "package": "com.barbarapolicar.triglavtrainer"
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "plugins": [
+      [
+        "expo-location",
+        {
+          "locationWhenInUsePermission": "Triglav Trainer uses your location to track runs and hikes (distance, elevation, pace)."
+        }
+      ],
+      [
+        "expo-calendar",
+        {
+          "calendarPermission": "Triglav Trainer adds your workouts and German study blocks to your calendar and plans around your existing events."
+        }
+      ],
+      [
+        "expo-sensors",
+        {
+          "motionPermission": "Triglav Trainer uses the altimeter to measure how many metres you climb."
+        }
+      ]
+    ]
   }
 }

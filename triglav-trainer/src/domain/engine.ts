@@ -188,6 +188,16 @@ export function generateWeek(state: AppState, config: WeekConfig, today: string)
     existing.sessions.forEach((s) => {
       if (s.date < today || s.status !== 'planned') locked[s.day] = s;
     });
+  } else {
+    // A week set up mid-week: days already gone are not planned.
+    for (let d = 0 as DayIdx; d < 7; d = (d + 1) as DayIdx) {
+      const date = addDays(weekStart, d);
+      if (date >= today) break;
+      locked[d] = {
+        id: `s-${date}-rest`, date, day: d, kind: 'rest', title: 'Before the plan started', details: [],
+        intensity: 'none', place: d >= 5 || config.homeDays.includes(d) ? 'home' : 'office', status: 'planned',
+      };
+    }
   }
   const input = buildPlanInput(state, config, locked);
   let sessions = planWeekSessions(input);
