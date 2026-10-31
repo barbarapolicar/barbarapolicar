@@ -45,8 +45,10 @@ The app plans each week, adapts when life gets in the way (skips, mountain trips
 |---|---|
 | Weekday time window | **Classes must finish by 18:00.** Runs and gym on weekdays start after 16:00. |
 | Weekends | No time limit. |
+| **Outdoor first** | Runs are **outside, on flat routes** whenever the weather allows. The 4P treadmill is only a bad-weather fallback. |
+| **Daily weather check** | Every outdoor run and hike is checked against the forecast each day (see §8). |
 | Weekly volume | 2 classes + 2 runs as the core. In Phase 2+, a gym session is added and the weekend run usually becomes a hike. |
-| Hard and light days | Hard: run, hike, BodyPump, gym (legs). Light: Pilates, easy bike, walk. **Never two hard days in a row**, including across the weekend boundary (Sun → Mon). |
+| Hard and light days | Hard: run, hike, BodyPump, Boot Camp, gym (legs). Light: Pilates, easy bike, walk. **Never two hard days in a row**, including across the weekend boundary (Sun → Mon). |
 | Knee | No leg-heavy session the day before a run or hike. No high-impact classes. |
 | **Variety** | **The same weekly layout is never repeated two weeks in a row.** Days, run types, gym workouts and hikes rotate (see §6). |
 | Easier weeks | Every 4th week is lighter (~30% less volume). |
@@ -64,15 +66,27 @@ Source: 4P Fitnes klub Ljubljana timetable (screenshot, Oct 2026). There are **n
 | **Pilates** | Tue 17:00–18:00, Thu 17:00–18:00 | Core, stability, light day |
 | **BodyPump** | Fri 17:00–18:00 | Main strength class: squats and lunges for climbing and controlled descents. Lighter weights on leg tracks at first. |
 
+### Trial class: Boot Camp
+
+| Class | When | Role |
+|---|---|---|
+| **Boot Camp** | Mon 17:00–18:00, Wed 17:00–18:00 | **Trial from week 5 (from 30 Nov 2026)**, about every other week. Hard, leg-heavy day. |
+
+Boot Camp includes jumping, so it is introduced carefully:
+- **Trial period (weeks 5–8):** about every second week. Tell the instructor about the knee and **use the low-impact options** (step instead of jump).
+- After each Boot Camp the knee check-in matters most. **Knee sore once → next Boot Camp skipped. Sore twice → Boot Camp paused** and replaced by BodyPump or gym G1.
+- **After the trial** the app asks: *Keep Boot Camp?* If yes, it can appear up to once a week. If no, it is removed from the rotation.
+- In Phase 1, a Boot Camp week replaces one run. In Phase 2+, it takes the gym session's place.
+
 ### Excluded
 
 | Class | Reason |
 |---|---|
-| Boot Camp (Mon/Wed 17:00), Hyrox prep (Thu 16:00), BodyAttack, FatBurner | High impact / jumping, bad for the knee |
+| Hyrox prep (Thu 16:00), BodyAttack, FatBurner | High impact / jumping, bad for the knee |
 | BodyPump Mon/Wed 18:00, Spin, BodyStep, Yogalates, BodyShape, Core | Finish after 18:00 |
 | Fit in zdravi (Tue/Thu 09:30), early morning classes | Outside the preferred time |
 
-The timetable is stored as editable data so it can be updated when 4P changes the schedule (see §11).
+The timetable is stored as editable data so it can be updated when 4P changes the schedule (see §12).
 
 ---
 
@@ -82,7 +96,7 @@ The timetable is stored as editable data so it can be updated when 4P changes th
 
 | Phase | Dates | Weeks | Focus |
 |---|---|---|---|
-| **1. Base** | 2 Nov – 27 Dec 2026 | 8 | Build the habit. Pilates, BodyPump, runs 2 → 5 km, Sv. Peter |
+| **1. Base** | 2 Nov – 27 Dec 2026 | 8 | Build the habit. Pilates, BodyPump, runs 2 → 5 km, Sv. Peter. **Boot Camp trial from week 5.** |
 | **2. Build** | 28 Dec 2026 – 28 Mar 2027 | 13 | Add a weekly gym session (stairs + legs). Roblek. Hikes up to ~1,000 m |
 | **3. Mountain** | 29 Mar – 13 Jun 2027 | 11 | Long climbing days: Begunjščica, Stol. Hikes up to ~1,500 m+ |
 | **4. Taper** | 14 – 27 Jun 2027 | 2 | Less volume, fresh legs, then **Triglav** |
@@ -101,7 +115,7 @@ The app sets distance only, never run/walk intervals or pace. How the distance i
 | 6 | 3 km | 4 km |
 | 7 | 3.5 km | 4.5 km |
 | 8 | 3.5 km | **5 km** |
-| Phase 2+ | 3–5 km, varied types (see §6) | usually replaced by a hike |
+| Phase 2+ | 3–5 km, flat, varied types (see §6) | usually replaced by a hike |
 
 If a week was rated hard (effort ≥ 8) or the knee complained, the week is repeated instead of moving on.
 
@@ -110,7 +124,7 @@ If a week was rated hard (effort ≥ 8) or the knee complained, the week is repe
 | Period | Typical hike | Climb (approx.) |
 |---|---|---|
 | Nov–Dec | **Sv. Peter nad Begunjami** | ~400–450 m |
-| Jan | Sv. Peter ×2 | ~850 m |
+| Jan | **Ratitovec** (from Prtovč) or a first, relaxed **Roblek** | ~650–1,000 m |
 | Feb–Mar | **Roblek** (from Begunje / Draga) | ~1,000 m |
 | Apr | **Begunjščica** | ~1,400 m |
 | May – early Jun | **Stol** (from Završnica) = Triglav rehearsal | ~1,500 m+ |
@@ -130,25 +144,32 @@ H = hard, L = light. All checked against the "no two hard days in a row" rule, i
 
 | Week | Mon | Tue | Wed | Thu | Fri | Sat | Sun |
 |---|---|---|---|---|---|---|---|
-| **A** | Rest | Pilates 17:00 (L) | Run, flat (H) | Rest | BodyPump 17:00 (H) | Rest | Run, longer (H) |
-| **B** | Rest | Run, hilly (H) | Rest | Pilates 17:00 (L) | BodyPump 17:00 (H) | Rest | **Sv. Peter** (H) |
-| **C**, "Saturday week" | Rest | Gym legs 16:00 + Pilates 17:00 (H) | Rest | Run, trail (H) | Rest | **Sv. Peter** (H) | Rest / walk |
+| **A** | Rest | Pilates 17:00 (L) | Run, easy (H) | Rest | BodyPump 17:00 (H) | Rest | Run, longer (H) |
+| **B** | Rest | Run, new flat route (H) | Rest | Pilates 17:00 (L) | BodyPump 17:00 (H) | Rest | **Sv. Peter** (H) |
+| **C**, "Saturday week" | Rest | Gym legs 16:00 + Pilates 17:00 (H) | Rest | Run, finish strong (H) | Rest | **Sv. Peter** (H) | Rest / walk |
 | **D**, easy week | Rest | Pilates 17:00 (L) | Run, short (H) | Rest | BodyPump 17:00 (H) | Rest | Easy walk (L) |
 
 Week C replaces BodyPump with a gym strength session, which frees Saturday for the mountains.
+
+**Boot Camp weeks (from week 5).** In about every second week, one template gets the Boot Camp variant. Example, week A with Boot Camp:
+
+| Week | Mon | Tue | Wed | Thu | Fri | Sat | Sun |
+|---|---|---|---|---|---|---|---|
+| **A + Boot Camp** | Rest | Pilates 17:00 (L) | **Boot Camp 17:00** (H) | Rest | BodyPump 17:00 (H) | Rest | Run, longer (H) |
 
 ### Example 4-week block, Phase 2+ (gym added)
 
 | Week | Mon | Tue | Wed | Thu | Fri | Sat | Sun |
 |---|---|---|---|---|---|---|---|
-| **A** | Gym: stairs + legs (H) | Pilates 17:00 (L) | Run (H) | Rest | BodyPump 17:00 (H) | Rest | **Hike** (H) |
-| **B** | Rest | Run, hilly (H) | Gym: easy bike + mobility (L) | Pilates 17:00 (L) | BodyPump 17:00 (H) | Rest | **Hike** (H) |
+| **A** | Gym: stairs + legs **or Boot Camp 17:00** (H) | Pilates 17:00 (L) | Run (H) | Rest | BodyPump 17:00 (H) | Rest | **Hike** (H) |
+| **B** | Rest | Run, flat (H) | Gym: easy bike + mobility (L) | Pilates 17:00 (L) | BodyPump 17:00 (H) | Rest | **Hike** (H) |
 | **C** | Rest | Gym legs 16:00 + Pilates 17:00 (H) | Rest | Run (H) | Rest | **Long hike** (H) | Easy walk (L) |
 | **D**, easy week | Rest | Pilates 17:00 (L) | Run, short (H) | Rest | BodyPump 17:00 (H) | Rest | Short hike or walk (L) |
 
 ### What rotates
 - **Template order** is shuffled every block (e.g. B-A-C-D, then C-B-A-D). The easy week D always stays 4th. **Never the same layout two weeks in a row.**
-- **Run types:** flat easy, hilly, trail, "finish strong" (last km a bit faster), new route. Routes around Radovljica vary: Sava riverside, Lesce, toward Begunje.
+- **Run types (all flat, outside):** easy, longer, "finish strong" (last km a bit faster), new route. The app rotates flat routes around Radovljica and Lesce (e.g. along the Sava) and learns your favourites from GPS.
+- **Monday hard sessions** (gym or Boot Camp) are only placed after a light or rest Sunday.
 - **Gym workouts:** rotation of 3 sessions:
   - **G1** stair machine + leg press + step-ups
   - **G2** incline treadmill + slow step-downs (eccentric, for knee control on descents) + glutes/hamstrings
@@ -161,19 +182,47 @@ Week C replaces BodyPump with a gym strength session, which frees Saturday for t
 ## 7. Hikes, benchmarks and conditions
 
 ### Benchmarks
-- **Sv. Peter benchmark** (~monthly, Phases 1–2). The first ascent sets the baseline time. Progress target: **two ascents in a row without slowing much**.
+- **Sv. Peter benchmark** (~monthly, Phases 1–2). The first ascent sets the baseline time. Progress target: **a steadily faster single ascent at the same effort**. One ascent per day, never repeats.
 - **Roblek steady-pace test** (Phase 2–3): hold an even pace for the whole climb.
 - **Stol rehearsal** (late May / early June): target **≥ 280 m/h** sustained over ~1,500 m. This is the clearest predictor of the Triglav 5.5 h.
 - The **Triglav dashboard** shows the trend of metres climbed per hour on long climbs against the 280 m/h target line.
 
 ### Snow, ice and conditions
 - In snowy or icy conditions the app shows a **gear reminder: microspikes + poles**. Roblek stays in the plan all winter.
-- **Backup options** are offered only in heavy fresh snow or avalanche danger: Sv. Peter repeats, or 45–60 min on the gym stair machine. Choosing a backup **never counts as a skip**.
+- **Backup options** are offered only in heavy fresh snow or avalanche danger: a single Sv. Peter ascent, or 45–60 min on the gym stair machine. Choosing a backup **never counts as a skip**.
 - Begunjščica and Stol are suggested from spring, once the user confirms conditions are OK.
 
 ---
 
-## 8. Knee protection
+## 8. Daily weather check
+
+The app checks the forecast **every day** for that day's outdoor session, and the **evening before** for hikes.
+
+### Runs (outside, flat)
+| Forecast at run time | Action |
+|---|---|
+| OK (dry or light drizzle, no storm, above about −5 °C, no ice on paths) | **Run outside** |
+| Bad window only (e.g. rain 16:00–18:00) | Suggests a better time today, or moves the run to the next suitable day (rules permitting) |
+| Bad all day (heavy rain, storm, strong wind, icy paths, extreme heat) | **Treadmill at 4P** (flat, same distance) as a fallback. Outside is always preferred. |
+
+Winter extras: after 16:00 it's dark from November, so the app reminds you about a **headlamp and reflective gear**, and warns about icy paths after freezing nights.
+
+### Hikes and mountains
+| Check | Action |
+|---|---|
+| Rain, fog or thunderstorms | Move the hike to the other weekend day or the next suitable day |
+| Summer afternoon thunderstorms (Apr–Jun) | Suggests an **early start** and a turnaround time |
+| Snow or ice | Gear reminder: **microspikes + poles** |
+| Heavy fresh snow or avalanche danger | Backup: lower destination (e.g. Sv. Peter) or gym stair machine |
+| Strong wind on ridges (Stol, Begunjščica) | Suggests a sheltered alternative |
+
+Data sources: national weather service forecasts (ARSO / meteo.si), the ARSO avalanche bulletin in winter, and a general forecast API (e.g. Open-Meteo) for hourly data at the exact location and altitude.
+
+Weather swaps **never count as a skip**.
+
+---
+
+## 9. Knee protection
 
 - **Trekking poles on every descent** (pre-hike checklist reminder).
 - **Descents are never timed.** Only the ascent counts toward pace.
@@ -185,7 +234,7 @@ Week C replaces BodyPump with a gym strength session, which frees Saturday for t
 
 ---
 
-## 9. Skips and mountain days
+## 10. Skips and mountain days
 
 - **Skip a session:** one tap, with a reason (mountains / busy / tired / sick).
 - **Block dates ahead:** mark a day or a date range (e.g. a weekend in the mountains). The week is planned around it.
@@ -195,10 +244,10 @@ Week C replaces BodyPump with a gym strength session, which frees Saturday for t
 
 ---
 
-## 10. App features
+## 11. App features
 
 ### Main screens
-1. **Today**: today's session with details (class + time, run distance and type, gym workout, hike suggestion + gear reminder), and buttons to start tracking, book or skip.
+1. **Today**: today's session with details, **weather verdict (outside / treadmill / move)**, (class + time, run distance and type, gym workout, hike suggestion + gear reminder), and buttons to start tracking, book or skip.
 2. **Week**: calendar view of the current week, with drag to move sessions (rules are validated).
 3. **Plan**: phases, upcoming weeks, Triglav countdown.
 4. **Track**: GPS recording for runs and hikes (distance, time, elevation gain, metres climbed/h, map).
@@ -222,11 +271,12 @@ Week C replaces BodyPump with a gym strength session, which frees Saturday for t
 ### Notifications
 - Reminder on session days (~14:00)
 - Sunday evening: preview of next week
+- Morning weather check for today's outdoor session; alert if the plan changes
 - Gear reminder the evening before a winter hike
 
 ---
 
-## 11. Data model
+## 12. Data model
 
 ```
 User
@@ -238,11 +288,12 @@ User
   │         └─ PlannedSession[] (day, type, details, status: planned/done/skipped/moved)
   └─ Session[]  (shared: date, durationMin, effort, kneeRating, load, note)
        ├─ ClassSession   → classTypeId, scheduleSlotId, booked
-       ├─ RunSession     → distanceKm, runType, gpsTrack
+       ├─ RunSession     → distanceKm, runType, indoor (treadmill) flag, gpsTrack
        ├─ GymSession     → workoutId (G1/G2/G3)
        └─ HikeSession    → destination, elevationGainM, ascentTimeMin, mPerHour, gpsTrack, conditions
 
-ClassType      → name, impact (low/med/high), legHeavy, allowed
+ClassType      → name, impact (low/med/high), legHeavy, status (allowed / trial / excluded)
+WeatherCheck   → date, sessionId, forecast, verdict (outside / treadmill / move / backup)
 ScheduleSlot   → classTypeId, weekday, start, end (4P timetable, editable)
 Destination    → name, approxGainM, winterNote
 BlockedDate    → date range, reason
@@ -250,7 +301,7 @@ BlockedDate    → date range, reason
 
 ---
 
-## 12. Technology
+## 13. Technology
 
 | Area | Choice | Why |
 |---|---|---|
@@ -259,14 +310,14 @@ BlockedDate    → date range, reason
 | Health data | Apple HealthKit (optional) | Saves workouts to Apple Health |
 | Storage | Local-first (SQLite) with optional cloud backup (Supabase) | Works offline in the mountains |
 | Maps | Mapbox or Apple Maps | Run and hike tracks |
-| Weather / conditions | Public forecast API (e.g. ARSO data) | Snow and ice hints for winter hikes |
+| Weather / conditions | ARSO (meteo.si) + avalanche bulletin, Open-Meteo hourly API | Daily check for outdoor runs and hikes |
 | Language | Slovenian + English | |
 
-The **plan generator** is a rules engine (§3, §6, §8, §9). It picks a template, fills in sessions, validates the hard/light and knee rules, and re-plans after skips, blocks and check-ins.
+The **plan generator** is a rules engine (§3, §6, §8, §9, §10). It picks a template, fills in sessions, validates the hard/light and knee rules, and re-plans after skips, blocks and check-ins.
 
 ---
 
-## 13. Build scope
+## 14. Build scope
 
 ### MVP
 - Profile, goal, phases and the plan generator with week templates and variety
@@ -276,23 +327,26 @@ The **plan generator** is a rules engine (§3, §6, §8, §9). It picks a templa
 - Check-in (effort + knee) and adaptive rules
 - Skip, block dates, log a mountain day
 - Passsport! hand-off button
+- Daily weather check with outside / treadmill / move decision
 
 ### Later
 - Triglav dashboard with benchmark trends
-- Weather and conditions hints
 - Apple Health sync
 - Notifications
 - Timetable update helper (re-enter from a screenshot)
 
 ---
 
-## 14. Decisions log
+## 15. Decisions log
 
 | Decision | Choice |
 |---|---|
 | Booking | Option 1: hand off to Passsport!, no automation |
 | Class time | Classes finish by 18:00 on weekdays. No limit on weekends (no weekend classes at 4P). |
-| Runs | Max 5 km, distance only (no run/walk instructions) |
+| Runs | Max 5 km, distance only (no run/walk instructions). **Flat, outside**; treadmill only in bad weather. |
+| Boot Camp | Trial from week 5 (~every other week, low-impact options), keep or drop after the trial |
+| Weather | Checked daily for outdoor runs and hikes |
+| Repeats | Never the same hill twice in one day |
 | Training hills | Sv. Peter nad Begunjami (benchmark), Roblek (winter with microspikes), Begunjščica, Stol. **Not Dobrča.** Not Šmarna gora (lives in Radovljica). |
 | Weekly structure | Varies week to week, never the same layout twice in a row |
 | Gym | 4P open gym used for stairs and leg strength sessions |
