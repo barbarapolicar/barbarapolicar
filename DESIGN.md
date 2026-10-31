@@ -12,7 +12,8 @@ Status: **design only**, not implemented yet.
 |---|---|
 | Home | Radovljica |
 | Work | Office in Ljubljana 3 days/week, **working from home in Radovljica 2 days/week** |
-| Fixed commitments | **Adult ballet class every Wednesday afternoon** (no other workout that day). **Singing lesson once a week**, on a different day Mon–Thu each week. |
+| Commute | Car, up to **45 min each way** Radovljica ↔ Ljubljana. 4P is a 10 min walk from the office. |
+| Fixed commitments | **Adult ballet class every Wednesday 17:30–18:30 at BTC Ljubljana** (no other workout that day; can be skipped). **Singing lesson once a week**, on a different day Mon–Thu each week. |
 | Gym | 4P Fitnes klub, Stegne 11, Ljubljana (classes + open gym access) |
 | Current fitness | Moderate. Šmarna gora (Tacen) in ~40 min |
 | Injury | Past knee injury, mostly fine now. **Descents can bother it.** |
@@ -373,6 +374,42 @@ Short guided routines (with simple illustrations, timer):
 
 ---
 
+## 13a. Calendar sync and German study
+
+### iPhone calendar
+- The app writes planned sessions to a calendar the user picks on the iPhone (e.g. their Google calendar, which then syncs to Google Calendar). German blocks can go to a separate calendar.
+- **Suggest first:** after the week is planned, the app shows the events and the user taps **"Add to calendar"**.
+- When a session moves, is skipped or is dropped, its calendar event is updated or deleted.
+- Existing calendar events are read so German blocks don't clash with them.
+
+### Event times
+| Session | Time in calendar |
+|---|---|
+| 4P class | Class time (e.g. 17:00–18:00) + 10 min walk each way |
+| Gym + Pilates | 16:00–18:00 |
+| Run on a home day | 16:00 (after work), ~45 min |
+| Run on an office day | After the drive home (~17:30) |
+| Ballet (Wed) | 17:30–18:30 at BTC, then the 45 min drive home |
+| Hike (weekend) | Start ~08:00. Duration estimated from the climb (ascent at the user's pace + descent + breaks + drive). |
+
+### German: two 30-minute blocks every day
+| Day type | Window |
+|---|---|
+| Home day | From **15:00** to **20:30** |
+| Office day | From **16:30** to **20:30** (after work; usually after the 45 min drive home) |
+| Weekend | Any time, 09:00–20:30 |
+
+Rules:
+- Two blocks of **30 min each, minimum 30 min**. Never overlapping with workouts, the 4P walk, the commute, ballet or calendar events, with a 10 min buffer.
+- **Block 1: textbook. Block 2: Duolingo (≥ 5 min) + review.**
+- If a day really can't fit both blocks inside the window, the app shows it and suggests the best single block. The user can always **skip German** for a day (no penalty).
+- German streak: days with at least one completed block.
+
+### Skipping ballet
+- Ballet can be skipped for a given week. If it's skipped in advance, the user can choose to **free Wednesday for training**, and the week is re-planned.
+
+---
+
 ## 14. App features
 
 ### Main screens
@@ -526,6 +563,8 @@ The first version is done when the user can, for 4 consecutive weeks:
 | Triglav | Pokljuka → summit in 5.5 h (ascent only), end of June 2027. Backup dates in early July. |
 | Home workouts | None, except an optional Pamela Reif video of max 15 min |
 | Safety features | Not included (no SOS, contact sharing or safety reminders) |
+| Calendar | iPhone calendar (syncs to Google Calendar), suggest-then-confirm |
+| German | 2 × 30 min daily: home days from 15:00, office days from 16:30, weekends any time, last block ends by 20:30. Skippable. |
 | Off days | **Wednesday always off** (ballet, counted in load). **One more day Mon–Thu off each week** (singing), chosen in the Sunday prompt. Extra days blockable. |
 | Location | 3 office days in Ljubljana (classes + gym), 2 home days in Radovljica (runs, short hikes; optional ≤ 15 min Pamela Reif video). Home days fixed or chosen weekly. |
 | Extras | Backpack weight progression, fuelling practice, sick/travel mode, Triglav day plan, battery + offline, gear checklists, warm-up/stretching, motivation, data export |
