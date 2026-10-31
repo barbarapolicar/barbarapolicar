@@ -124,7 +124,7 @@ If a week was rated hard (effort ≥ 8) or the knee complained, the week is repe
 | Period | Typical hike | Climb (approx.) |
 |---|---|---|
 | Nov–Dec | **Sv. Peter nad Begunjami** | ~400–450 m |
-| Jan | **Ratitovec** (from Prtovč) or a first, relaxed **Roblek** | ~650–1,000 m |
+| Jan | **Kofce** (from Podljubelj, ~25 min drive) or a first, relaxed **Roblek** | ~600–1,000 m |
 | Feb–Mar | **Roblek** (from Begunje / Draga) | ~1,000 m |
 | Apr | **Begunjščica** | ~1,400 m |
 | May – early Jun | **Stol** (from Završnica) = Triglav rehearsal | ~1,500 m+ |
@@ -174,7 +174,7 @@ Week C replaces BodyPump with a gym strength session, which frees Saturday for t
   - **G1** stair machine + leg press + step-ups
   - **G2** incline treadmill + slow step-downs (eccentric, for knee control on descents) + glutes/hamstrings
   - **G3** easy bike + core + mobility (used as a light day or when the knee is irritated)
-- **Hikes:** alternate destinations and paths up (Sv. Peter / Roblek / Begunjščica / Stol, and Ratitovec occasionally for variety in Phase 3).
+- **Hikes:** alternate destinations and paths up (Sv. Peter / Kofce / Roblek / Begunjščica / Stol, and **Golica** (from Planina pod Golico, ~25 min drive, ~900 m) for variety in spring). All starting points are **within ~30 min drive of Radovljica**.
 - **Pilates:** alternates between Tue and Thu.
 
 ---
@@ -347,7 +347,7 @@ The **plan generator** is a rules engine (§3, §6, §8, §9, §10). It picks a 
 | Boot Camp | Trial from week 5 (~every other week, low-impact options), keep or drop after the trial |
 | Weather | Checked daily for outdoor runs and hikes |
 | Repeats | Never the same hill twice in one day |
-| Training hills | Sv. Peter nad Begunjami (benchmark), Roblek (winter with microspikes), Begunjščica, Stol. **Not Dobrča.** Not Šmarna gora (lives in Radovljica). |
+| Training hills | All starts within ~30 min drive of Radovljica: Sv. Peter nad Begunjami (benchmark), Kofce, Roblek (winter with microspikes), Begunjščica, Golica, Stol. **Not Dobrča.** Not Šmarna gora (lives in Radovljica). |
 | Weekly structure | Varies week to week, never the same layout twice in a row |
 | Gym | 4P open gym used for stairs and leg strength sessions |
 | Tracking | Built in (phone GPS + altimeter). No watch, no third-party apps. |
