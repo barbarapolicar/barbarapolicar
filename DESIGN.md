@@ -12,6 +12,7 @@ Status: **design only**, not implemented yet.
 |---|---|
 | Home | Radovljica |
 | Work | Office in Ljubljana 3 days/week, **working from home in Radovljica 2 days/week** |
+| Fixed commitments | **Adult ballet class every Wednesday afternoon** (no other workout that day). **Singing lesson once a week**, on a different day Mon–Thu each week. |
 | Gym | 4P Fitnes klub, Stegne 11, Ljubljana (classes + open gym access) |
 | Current fitness | Moderate. Šmarna gora (Tacen) in ~40 min |
 | Injury | Past knee injury, mostly fine now. **Descents can bother it.** |
@@ -48,8 +49,9 @@ The app plans each week, adapts when life gets in the way (skips, mountain trips
 | Weekends | No time limit. |
 | **Outdoor first** | Runs are **outside, on flat routes** whenever the weather allows. The 4P treadmill is only a bad-weather fallback. |
 | **Daily weather check** | Every outdoor run and hike is checked against the forecast each day (see §8). |
-| Weekly volume | 2 classes + 2 runs as the core. In Phase 2+, a gym session is added and the weekend run usually becomes a hike. |
-| Hard and light days | Hard: run, hike, BodyPump, Boot Camp, gym (legs). Light: Pilates, easy bike, walk. **Never two hard days in a row**, including across the weekend boundary (Sun → Mon). |
+| **Unavailable days** | **Wednesday is always off** (ballet). **One more day Mon–Thu is off each week** (singing lesson), chosen weekly. Extra days can be blocked any time. See §3.2. |
+| Weekly volume | Ballet + **4 sessions** as the target (Phase 1: 2 classes + 2 runs, hike can replace the Sunday run. Phase 2+: strength, Pilates, run, hike). Weeks where the free days don't allow 4 get 3, which is fine. |
+| Hard and light days | Hard: run, hike, BodyPump, Boot Camp, gym (legs). Medium: **ballet** (counts in the weekly load, not as a hard day unless rated effort ≥ 7). Light: Pilates, easy bike, walk. **Never two hard days in a row**, including across the weekend boundary (Sun → Mon). |
 | Knee | No leg-heavy session the day before a run or hike. No high-impact classes. |
 | **Variety** | **The same weekly layout is never repeated two weeks in a row.** Days, run types, gym workouts and hikes rotate (see §6). |
 | Easier weeks | Every 4th week is lighter (~30% less volume). |
@@ -69,17 +71,37 @@ The user works from the Ljubljana office 3 days a week and from home in Radovlji
 | Bad-weather fallback for runs | 4P treadmill | Move the run to an office day, or do H1 instead |
 
 **Setting the home days:**
-- In settings: **fixed home days** (e.g. always Mon + Wed), or **pick them each week** (the app asks on Sunday evening: *"Which days are you at home next week?"*).
+- In settings: **fixed home days** (e.g. always Mon + Thu), or **pick them each week** in the Sunday-evening planning prompt (§3.2).
 - Changing a home day re-plans the rest of the week.
 
 **Rules when home days clash with classes:**
 - Pilates is on Tue and Thu, so at least one of them is usually an office day. If both are home days, Pilates is replaced by H1 (core part) that week.
 - If **Friday is a home day**, BodyPump isn't possible. It is replaced by **gym G1 on an office day**, or **H1 at home**.
-- Boot Camp (Mon/Wed) is only suggested if that day is an office day.
+- Boot Camp (Mon only, since Wednesday is ballet) is only suggested if Monday is an office day.
 
 **H1: home strength routine** (~30 min, no equipment needed): squats, step-ups and **slow step-downs on a stair**, lunges, glute bridges, calf raises, plank and side plank. Knee-friendly; step-downs build control for descents.
 
-The example weeks in §6 show the structure only. When the real home days are known, the generator applies the rules above: a gym session on a home day becomes H1, a class on a home day moves to its other weekday (Pilates Tue ↔ Thu, Boot Camp Mon ↔ Wed) or is replaced, and runs move to home days where possible. All hard/light and knee rules still apply.
+The example weeks in §6 show the structure only. When the real home days are known, the generator applies the rules above: a gym session on a home day becomes H1, a class on a home day moves to its other weekday (Pilates Tue ↔ Thu) or is replaced, and runs move to home days where possible. All hard/light and knee rules still apply.
+
+### 3.2 Ballet, singing and other unavailable days
+
+**Wednesday: ballet (fixed).**
+- No other workout is ever planned on Wednesday.
+- Ballet is logged automatically as a session (can be confirmed or skipped) with the usual check-in: effort and knee. It counts toward the weekly load. It's good training for balance, ankle and knee stability and core.
+- If ballet was rated hard (effort ≥ 7) or the knee was sore, Thursday is kept light.
+
+**Singing lesson: one day Mon–Thu, chosen each week.**
+- **Sunday-evening planning prompt:** *"Next week: which day is singing? Which days are you working from home?"* Two quick taps, then the app builds the week.
+- If the singing day changes during the week, the user moves it in the app and the rest of the week is re-planned.
+- A day can be marked **fully off** (default) or **"evening only"** if the lesson is late and a workout before it is possible. Only fully off is used unless the user changes it.
+
+**Any other day** can be blocked at any time (one tap, optional reason). This works exactly like the singing day.
+
+**What this means for the plan:**
+- Weekdays available for workouts each week: **Mon, Tue, Thu, Fri minus the singing day**, plus Saturday and Sunday.
+- Monday is only used for a hard session (run, gym, Boot Camp) when the Sunday before was light. Otherwise Monday is rest.
+- When the free days don't fit 4 sessions with the hard/light rules, the app plans 3 and **drops the least important session for that phase** (Phase 1: second run first. Phase 2+: Pilates first, then the run). The hike and the strength session are kept.
+- A week that ends up with only 3 sessions **can count as that block's easy week**, so the plan doesn't stack an extra easy week on top.
 
 ---
 
@@ -98,7 +120,7 @@ Source: 4P Fitnes klub Ljubljana timetable (screenshot, Oct 2026). There are **n
 
 | Class | When | Role |
 |---|---|---|
-| **Boot Camp** | Mon 17:00–18:00, Wed 17:00–18:00 | **Trial from week 5 (from 30 Nov 2026)**, about every other week. Hard, leg-heavy day. |
+| **Boot Camp** | **Mon 17:00–18:00** (the Wed slot clashes with ballet) | **Trial from week 5 (from 30 Nov 2026)**, about every other week, when Monday is free and the Sunday before was light. Hard, leg-heavy day. |
 
 Boot Camp includes jumping, so it is introduced carefully:
 - **Trial period (weeks 5–8):** about every second week. Tell the instructor about the knee and **use the low-impact options** (step instead of jump).
@@ -164,38 +186,40 @@ Climbing figures are estimates. The app replaces them with real GPS values after
 
 ## 6. Weekly variety
 
-The app builds each week from a **rotating set of week templates**, so days and workouts change from week to week. The total load stays on track. Constraints: Pilates is only Tue/Thu, BodyPump only Fri, so the variety comes from moving runs, gym and hikes, swapping Pilates days, and occasionally replacing BodyPump with a gym strength session.
+The app builds each week from scratch every Sunday evening, using that week's free days (§3.2), home days (§3.1), the phase and the weather. Because the singing day moves and different week types rotate, **weeks naturally change**. On top of that, the app makes sure **no two consecutive weeks have the same layout**.
 
-### Example 4-week block, Phase 1
+Building blocks:
+- **"Friday pump" week:** BodyPump on Friday, hike or long run on Sunday.
+- **"Saturday mountains" week:** a gym strength session (16:00) + Pilates (17:00) on Tuesday or Thursday replaces BodyPump. This frees **Saturday for the mountains**, and a light Sunday opens **Monday** for a hard session in the following week (e.g. Boot Camp).
+- **Easy week:** every ~4th week, or a week that is naturally short because of blocked days.
 
-H = hard, L = light. All checked against the "no two hard days in a row" rule, including across week boundaries.
+### Example: first 5 weeks (Phase 1)
 
-| Week | Mon | Tue | Wed | Thu | Fri | Sat | Sun |
-|---|---|---|---|---|---|---|---|
-| **A** | Rest | Pilates 17:00 (L) | Run, easy (H) | Rest | BodyPump 17:00 (H) | Rest | Run, longer (H) |
-| **B** | Rest | Run, new flat route (H) | Rest | Pilates 17:00 (L) | BodyPump 17:00 (H) | Rest | **Sv. Peter** (H) |
-| **C**, "Saturday week" | Rest | Gym legs 16:00 + Pilates 17:00 (H) | Rest | Run, finish strong (H) | Rest | **Sv. Peter** (H) | Rest / walk |
-| **D**, easy week | Rest | Pilates 17:00 (L) | Run, short (H) | Rest | BodyPump 17:00 (H) | Rest | Easy walk (L) |
-
-Week C replaces BodyPump with a gym strength session, which frees Saturday for the mountains.
-
-**Boot Camp weeks (from week 5).** In about every second week, one template gets the Boot Camp variant. Example, week A with Boot Camp:
+H = hard, M = medium, L = light, ♪ = singing day (off). Checked against the rules: no two hard days in a row (including Sun → Mon), Wednesday always ballet, classes finish by 18:00.
 
 | Week | Mon | Tue | Wed | Thu | Fri | Sat | Sun |
 |---|---|---|---|---|---|---|---|
-| **A + Boot Camp** | Rest | Pilates 17:00 (L) | **Boot Camp 17:00** (H) | Rest | BodyPump 17:00 (H) | Rest | Run, longer (H) |
+| **1** (♪ Mon) | ♪ | Run 2 km (H) | Ballet (M) | Pilates 17:00 (L) | BodyPump 17:00 (H) | Rest | Run 2.5 km (H) |
+| **2** (♪ Thu) | Rest | Gym legs 16:00 + Pilates 17:00 (H) | Ballet (M) | ♪ | Run 2.5 km (H) | Rest | **Sv. Peter** (H) |
+| **3** (♪ Tue), short week = easy week | Rest | ♪ | Ballet (M) | Pilates 17:00 (L) | BodyPump 17:00 (H) | Rest | Run 2.5 km (H) |
+| **4** (♪ Mon), Saturday mountains | ♪ | Run 3 km (H) | Ballet (M) | Gym legs 16:00 + Pilates 17:00 (H) | Rest | **Sv. Peter** (H) | Walk (L) |
+| **5** (♪ Thu), first Boot Camp | **Boot Camp 17:00** (H) | Pilates 17:00 (L) | Ballet (M) | ♪ | BodyPump 17:00 (H) | Rest | Run 3.5 km (H) |
 
-### Example 4-week block, Phase 2+ (gym added)
+Week 4 ends with a light Sunday, so week 5 can start with Boot Camp on Monday. In week 5 Boot Camp replaces one run (§4).
+
+### Example: 4 weeks in Phase 2
 
 | Week | Mon | Tue | Wed | Thu | Fri | Sat | Sun |
 |---|---|---|---|---|---|---|---|
-| **A** | Gym: stairs + legs **or Boot Camp 17:00** (H) | Pilates 17:00 (L) | Run (H) | Rest | BodyPump 17:00 (H) | Rest | **Hike** (H) |
-| **B** | Rest | Run, flat (H) | Gym: easy bike + mobility (L) | Pilates 17:00 (L) | BodyPump 17:00 (H) | Rest | **Hike** (H) |
-| **C** | Rest | Gym legs 16:00 + Pilates 17:00 (H) | Rest | Run (H) | Rest | **Long hike** (H) | Easy walk (L) |
-| **D**, easy week | Rest | Pilates 17:00 (L) | Run, short (H) | Rest | BodyPump 17:00 (H) | Rest | Short hike or walk (L) |
+| **A** (♪ Mon) | ♪ | Run 4 km (H) | Ballet (M) | Pilates 17:00 (L) | BodyPump 17:00 (H) | Rest | **Hike: Roblek** (H) |
+| **B** (♪ Thu) | Rest | Gym G2 16:00 + Pilates 17:00 (H) | Ballet (M) | ♪ | Run 5 km (H) | Rest | **Hike: Kofce** (H) |
+| **C** (♪ Tue), Saturday mountains | Rest | ♪ | Ballet (M) | Gym G1 16:00 + Pilates 17:00 (H) | Rest | **Long hike** (H) | Walk (L) |
+| **D** (♪ Thu), easy week | Run 3 km **or Boot Camp** (H) | Pilates 17:00 (L) | Ballet (M) | ♪ | BodyPump 17:00 (H) | Rest | Short hike or walk (L) |
+
+These are examples. The real weeks depend on the singing day, home days and weather chosen each week.
 
 ### What rotates
-- **Template order** is shuffled every block (e.g. B-A-C-D, then C-B-A-D). The easy week D always stays 4th. **Never the same layout two weeks in a row.**
+- **Week type** alternates between "Friday pump" and "Saturday mountains" as the free days allow. **Never the same layout two weeks in a row.**
 - **Run types (all flat, outside):** easy, longer, "finish strong" (last km a bit faster), new route. The app rotates flat routes around Radovljica and Lesce (e.g. along the Sava) and learns your favourites from GPS.
 - **Monday hard sessions** (gym or Boot Camp) are only placed after a light or rest Sunday.
 - **Location swap:** any gym session that lands on a home day becomes **H1 (home strength)**, and runs are moved to home days when possible (see §3.1).
@@ -204,7 +228,7 @@ Week C replaces BodyPump with a gym strength session, which frees Saturday for t
   - **G2** incline treadmill + slow step-downs (eccentric, for knee control on descents) + glutes/hamstrings
   - **G3** easy bike + core + mobility (used as a light day or when the knee is irritated)
 - **Hikes:** alternate destinations and paths up (Sv. Peter / Kofce / Roblek / Begunjščica / Stol, and **Golica** (from Planina pod Golico, ~25 min drive, ~900 m) for variety in spring). All starting points are **within ~30 min drive of Radovljica**.
-- **Pilates:** alternates between Tue and Thu.
+- **Pilates:** Tue or Thu, whichever isn't the singing day. Alternates when both are free.
 
 ---
 
@@ -284,7 +308,7 @@ Weather swaps **never count as a skip**.
 ## 10. Skips and mountain days
 
 - **Skip a session:** one tap, with a reason (mountains / busy / tired / sick).
-- **Block dates ahead:** mark a day or a date range (e.g. a weekend in the mountains). The week is planned around it.
+- **Block dates ahead:** mark a day or a date range (e.g. a weekend in the mountains, a ballet performance, an extra singing lesson). The week is planned around it.
 - **Log your own mountain day** (GPS or manual: duration, elevation gain, effort). It counts as training and **replaces the planned hike or run**. The day after a big mountain day is automatically easy or rest.
 - **After a skip** the app tries to move the session to the next free slot that respects the rules. If there isn't one, it is dropped. **No penalty:** the progression simply holds.
 - **Streaks** count weeks with ≥ 2 completed sessions, so one skip doesn't break a streak.
@@ -366,7 +390,7 @@ Short guided routines (with simple illustrations, timer):
 5. **Progress / Triglav dashboard**: benchmark trend, m/h vs target, weekly load, streaks, distance and climbing totals.
 6. **Log**: history of all sessions with effort and knee ratings.
 
-7. **Settings**: home/office days, safety contact, units, language, data export.
+7. **Settings**: recurring off days (Wednesday: ballet), weekly variable off day (singing, Mon–Thu), home/office days, safety contact, units, language, data export.
 
 ### Motivation
 - **Summit collection:** every training hill and peak reached gets a card (date, time, photo, m/h). Goal: complete all training hills before Triglav.
@@ -396,10 +420,9 @@ Short guided routines (with simple illustrations, timer):
 
 ### Notifications
 - Reminder on session days (~14:00)
-- Sunday evening: preview of next week
 - Morning weather check for today's outdoor session; alert if the plan changes
 - Gear checklist the evening before a hike or a dark run
-- Sunday evening: which days are you at home next week? (if home days aren't fixed)
+- **Sunday evening planning prompt:** singing day + home days for next week, then a preview of the new week
 - Safety: overdue check after expected return time
 
 ---
@@ -410,6 +433,8 @@ Short guided routines (with simple illustrations, timer):
 User
   ├─ profile: home, gym, injuries, equipment, safetyContact
   ├─ WorkPattern: fixed home days or weekly choice; DayLocation[] (date, office / home)
+  ├─ RecurringOffDay[]: weekday, reason (Wed: ballet)
+  ├─ WeeklyOffDay[]: weekStart, day (Mon–Thu), reason (singing), fullDay / eveningOnly
   ├─ Goal: Triglav, date 2027-06-27, target 5.5 h / ~1,500 m (≈280 m/h)
   ├─ Plan
   │    ├─ Phase[] (name, start, end, focus)
@@ -420,7 +445,8 @@ User
        ├─ RunSession     → distanceKm, runType, indoor (treadmill) flag, gpsTrack
        ├─ GymSession     → workoutId (G1/G2/G3)
        ├─ HikeSession    → destination, elevationGainM, ascentTimeMin, mPerHour, packKg, fuelLog, energy, gpsTrack, conditions
-       └─ HomeSession    → routineId (H1, warm-up, stretching, knee routine)
+       ├─ HomeSession    → routineId (H1, warm-up, stretching, knee routine)
+       └─ BalletSession  → auto-created each Wednesday, confirmed or skipped
 
 ClassType      → name, impact (low/med/high), legHeavy, status (allowed / trial / excluded)
 WeatherCheck   → date, sessionId, forecast, verdict (outside / treadmill / move / backup)
@@ -459,6 +485,7 @@ The **plan generator** is a rules engine (§3, §3.1, §6, §8, §9, §10). It p
 ### MVP
 - Profile, goal, phases and the plan generator with week templates and variety
 - **Office / home days** and location-aware planning, H1 home routine
+- **Off days:** Wednesday (ballet) fixed, weekly singing day, extra blocked days. Sunday-evening planning prompt
 - 4P timetable (manual data entry) and class suggestions
 - Today / Week / Log screens
 - GPS tracking for runs and hikes (distance, elevation, m/h)
@@ -483,7 +510,7 @@ The **plan generator** is a rules engine (§3, §3.1, §6, §8, §9, §10). It p
 
 ### Success criteria for the MVP
 The first version is done when the user can, for 4 consecutive weeks:
-1. Open the app each day and see **one clear session** that respects all rules (time window, hard/light, knee, office/home day, weather).
+1. Open the app each day and see **one clear session** (or a clear rest/off day) that respects all rules (time window, hard/light, knee, office/home day, ballet and singing days, weather).
 2. **Book** a suggested 4P class via the Passsport! hand-off in ≤ 2 taps.
 3. **Track** a run and a hike with phone only, with distance, elevation gain and m/h within ~5–10% of known values.
 4. **Skip**, block dates, change home days or switch to sick mode, and get a valid re-planned week immediately.
@@ -507,5 +534,6 @@ The first version is done when the user can, for 4 consecutive weeks:
 | Gym | 4P open gym used for stairs and leg strength sessions |
 | Tracking | Built in (phone GPS + altimeter). No watch, no third-party apps. |
 | Triglav | Pokljuka → summit in 5.5 h (ascent only), end of June 2027. Backup dates in early July. |
+| Off days | **Wednesday always off** (ballet, counted in load). **One more day Mon–Thu off each week** (singing), chosen in the Sunday prompt. Extra days blockable. |
 | Location | 3 office days in Ljubljana (classes + gym), 2 home days in Radovljica (runs, H1, short hikes). Home days fixed or chosen weekly. |
 | Extras | Backpack weight progression, fuelling practice, sick/travel mode, Triglav day plan, safety + battery + offline, gear checklists, warm-up/stretching, motivation, data export |
